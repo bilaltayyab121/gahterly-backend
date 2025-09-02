@@ -8,6 +8,7 @@
     "start": "node dist/server.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "prisma generate",
     "prisma:generate": "prisma generate",
     "prisma:dev": "prisma migrate dev --name init",
     "prisma:deploy": "prisma migrate deploy",
