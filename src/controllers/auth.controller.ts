@@ -74,14 +74,14 @@ export async function verifyLogin(req: Request, res: Response) {
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
       secure: process.env.ENV === "production",
-      sameSite: process.env.ENV === "production" ? "strict" : "lax",
+      sameSite: process.env.ENV === "production" ? "none" : "lax",
       maxAge: 15 * 60 * 1000, // 15 min
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: process.env.ENV === "production",
-      sameSite: process.env.ENV === "production" ? "strict" : "lax",
+      sameSite: process.env.ENV === "production" ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -166,14 +166,14 @@ export async function refreshAccessToken(req: Request, res: Response) {
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
       secure: process.env.ENV === "production",
-      sameSite: process.env.ENV === "production" ? "strict" : "lax",
+      sameSite: process.env.ENV === "production" ? "none" : "lax",
       maxAge: 15 * 60 * 1000, // 15 min
     });
 
     res.cookie("refreshToken", newRefreshToken, {
       httpOnly: true,
       secure: process.env.ENV === "production",
-      sameSite: process.env.ENV === "production" ? "strict" : "lax",
+      sameSite: process.env.ENV === "production" ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -203,13 +203,13 @@ export async function logout(req: AuthRequest, res: Response) {
     res.clearCookie("accessToken", {
       httpOnly: true,
       secure: process.env.ENV === "production",
-      sameSite: process.env.ENV === "production" ? "strict" : "lax",
+      sameSite: process.env.ENV === "production" ? "none" : "lax",
     });
 
     res.clearCookie("refreshToken", {
       httpOnly: true,
       secure: process.env.ENV === "production",
-      sameSite: process.env.ENV === "production" ? "strict" : "lax",
+      sameSite: process.env.ENV === "production" ? "none" : "lax",
     });
 
     res.json({ success: true, message: `${fullName} successfully logged out` });
