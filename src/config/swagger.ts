@@ -10,7 +10,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://gatherly-backend.vercel.app/",
+        url: "https://gatherly-backend.vercel.app",
       },
     ],
   },
