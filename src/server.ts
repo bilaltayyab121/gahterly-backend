@@ -116,15 +116,6 @@ app.get("/check", (_req, res) => {
   res.json({ status: "Running...", timestamp: new Date().toISOString() });
 });
 
-// Debug route to check swagger spec
-app.get("/debug/swagger", (_req, res) => {
-  res.json({
-    pathsCount: Object.keys(swaggerSpec?.paths || {}).length,
-    paths: Object.keys(swaggerSpec?.paths || {}),
-    info: swaggerSpec?.info,
-  });
-});
-
 // Unhandle Error
 app.use(errorHandler);
 

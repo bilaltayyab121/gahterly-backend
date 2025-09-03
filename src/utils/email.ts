@@ -32,14 +32,6 @@ export async function sendEmail(to: string, subject: string, text: string, html?
   });
 }
 
-// export async function sendOtpEmail(to: string, otp: string, purpose = "verification", ttlMinutes = 10) {
-//   const subject = purpose === "password_reset" ? "Password reset code" : "Your OTP code";
-//   const text = `Your ${purpose} OTP: ${otp}. It will expire in ${ttlMinutes} minutes.`;
-//   const html = `<p>Your <strong>${purpose}</strong> OTP: <strong>${otp}</strong></p><p>It will expire in ${ttlMinutes} minutes.</p>`;
-//   return sendEmail(to, subject, text, html);
-// }
-
-
 export async function sendOtpEmail(
   to: string, 
   otp: string, 

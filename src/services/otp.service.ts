@@ -1,5 +1,5 @@
 import prisma from "../config/db.config";
-import { sendOtpEmail } from "../utils/email.util";
+import { sendOtpEmail } from "../utils/email";
 
 const OTP_TTL_MINUTES = Number(process.env.OTP_TTL_MINUTES ?? 10);
 

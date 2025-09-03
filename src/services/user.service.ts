@@ -167,7 +167,6 @@ export async function updateUserPassword(
 
 
 // Deleet user service
-// Delete user service
 export async function deleteUser(userId: string) {
   // First check if user exists
   const userToDelete = await prisma.user.findUnique({

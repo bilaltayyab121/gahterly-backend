@@ -3,7 +3,7 @@ import { hashPassword, comparePassword } from "../utils/hash.util";
 import * as otpService from "./otp.service";
 import { isEmail, isStrongPassword ,isPhoneNumber } from "../utils/validation.util";
 import { signAccessToken, signRefreshToken , verifyRefreshToken, verifyPasswordResetToken, signPasswordResetToken } from "../utils/jwt.util";
-import { sendEmail } from "../utils/email.util";
+import { sendEmail } from "../utils/email";
 import { generateRandomPassword } from "../utils/generateRandomPassword.util";
 
 

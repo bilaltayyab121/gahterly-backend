@@ -1,5 +1,5 @@
 import prisma from "../config/db.config";
-import { sendEmail } from "../utils/email.util";
+import { sendEmail } from "../utils/email";
 import { GetAllOptions } from "../types/event.type";
 
 // Join Event Service
