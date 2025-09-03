@@ -1,10 +1,16 @@
 import prisma from "../config/db.config";
-import { hashPassword, comparePassword } from "../utils/hash.util";
+import { hashPassword, comparePassword } from "../utils/hash";
 import * as otpService from "./otp.service";
-import { isEmail, isStrongPassword ,isPhoneNumber } from "../utils/validation.util";
-import { signAccessToken, signRefreshToken , verifyRefreshToken, verifyPasswordResetToken, signPasswordResetToken } from "../utils/jwt.util";
+import { isEmail, isStrongPassword, isPhoneNumber } from "../utils/validation";
+import {
+  signAccessToken,
+  signRefreshToken,
+  verifyRefreshToken,
+  verifyPasswordResetToken,
+  signPasswordResetToken,
+} from "../utils/jwt";
 import { sendEmail } from "../utils/email";
-import { generateRandomPassword } from "../utils/generateRandomPassword.util";
+import { generateRandomPassword } from "../utils/generateRandomPassword";
 
 
 type UserRole = "SUPER_ADMIN" | "ORGANIZER" | "PARTICIPANT";

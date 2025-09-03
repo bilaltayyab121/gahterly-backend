@@ -1,6 +1,6 @@
 import prisma from "../config/db.config";
-import { isPhoneNumber, isStrongPassword } from "../utils/validation.util";
-import { hashPassword, comparePassword } from "../utils/hash.util";
+import { isPhoneNumber, isStrongPassword } from "../utils/validation";
+import { hashPassword, comparePassword } from "../utils/hash";
 import { GetAllOptions } from "../types/event.type";
 
 

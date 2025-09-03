@@ -1,7 +1,7 @@
 import prisma from "../config/db.config";
 import cloudinary from "../config/cloudinary.config";
 import { CreateEvent } from "../types/event.type";
-import { isEmail, isPhoneNumber } from "../utils/validation.util";
+import { isEmail, isPhoneNumber } from "../utils/validation";
 import { GetAllOptions } from "../types/event.type"
 
 

@@ -1,4 +1,3 @@
-// swagger.ts - Updated configuration
 import swaggerJsdoc from "swagger-jsdoc";
 const path = require("path");
 
