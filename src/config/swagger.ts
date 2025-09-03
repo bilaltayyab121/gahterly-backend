@@ -14,7 +14,7 @@ const options = {
       },
     ],
   },
-  apis: ["./routes/*.js"], // Path to your route files where you use swagger annotations
+  apis: ["./src/routes/*.ts"], // Path to your route files where you use swagger annotations
 };
 
 const swaggerSpec = swaggerJsdoc(options);

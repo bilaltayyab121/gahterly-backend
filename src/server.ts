@@ -22,7 +22,11 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 
 // Route
+
 app.use("/api/v1", routes);
+
+// Swagger UI route (should be before error handler)
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Health Check
 app.get("/check", (_req, res) => {
@@ -37,7 +41,5 @@ if (process.env.ENV === "development") {
     console.log(`Server running on http://localhost:${process.env.PORT}`)
   );
 }
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 export default app;
