@@ -4,13 +4,13 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "My API",
+      title: "Gatherly API",
       version: "1.0.0",
       description: "API documentation using Swagger",
     },
     servers: [
       {
-        url: "https://gatherly-backend.vercel.app/", // change if deploying
+        url: "https://gatherly-backend.vercel.app/",
       },
     ],
   },

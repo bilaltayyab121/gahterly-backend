@@ -1,14 +1,16 @@
 import prisma from "../config/db.config";
-import { generateOtp } from "../utils/generateOtp.util";
 import { sendOtpEmail } from "../utils/email.util";
 
 const OTP_TTL_MINUTES = Number(process.env.OTP_TTL_MINUTES ?? 10);
 
+// generate OTP
+export function generateOtp(length = 6): string {
+  const min = Math.pow(10, length - 1);
+  return String(Math.floor(min + Math.random() * (9 * min)));
+}
+
 // Create OTP And Send On Email
-export async function createAndSendOtp(
-  userId: string,
-  purpose: "LOGIN"
-) {
+export async function createAndSendOtp(userId: string, purpose: "LOGIN") {
   // 1. Invalidate all old OTPs for this user & purpose
   await prisma.otpRequest.updateMany({
     where: {
@@ -24,6 +26,7 @@ export async function createAndSendOtp(
 
   // 2. Generate new OTP
   const otp = generateOtp();
+
   const expiresAt = new Date(Date.now() + OTP_TTL_MINUTES * 60 * 1000);
 
   const otpRecord = await prisma.otpRequest.create({
@@ -49,7 +52,6 @@ export async function createAndSendOtp(
 
   return otpRecord;
 }
-
 
 // Verify OTP
 export async function verifyOtp(

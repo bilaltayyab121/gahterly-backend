@@ -30,8 +30,6 @@ export async function deleteHost(
     throw new Error("Host not found in this event");
   }
 
-  // Prevent deleting the event creator (organizer) from hosts
-  // Since the organizer's email is always in hosts, we need to check if this is the organizer
   const organizerUser = await prisma.user.findUnique({
     where: { id: organizerId },
     select: { email: true }
