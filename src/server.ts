@@ -3,8 +3,9 @@ import morgan from "morgan";
 import express from "express";
 import routes from "./routes";
 import cookieParser from "cookie-parser";
-import { setupSwagger } from "./config/swagger.config";
 import errorHandler from "./middlewares/errorHandler.middleware";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./config/swagger";
 
 const app = express();
 app.use(express.json());
@@ -37,6 +38,6 @@ if (process.env.ENV === "development") {
   );
 }
 
-setupSwagger(app);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 export default app;
